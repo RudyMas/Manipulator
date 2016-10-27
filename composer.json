@@ -1,0 +1,21 @@
+{
+  "name": "rudymas/manipulator",
+  "description": "A collection of classes that manipulate a certain subject (Text, Number, ...)",
+  "type": "library",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Rudy Mas",
+      "email": "rudy.mas@rudymas.be"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">= 5.4.0 || >= 7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "RudyMas\\Manipulator\\": "src/"
+    }
+  }
+}
