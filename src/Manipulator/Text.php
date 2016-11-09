@@ -2,12 +2,14 @@
 namespace RudyMas\Manipulator;
 
 /**
- * Text - PHP class to manipulate text
+ * Class Text
+ * PHP class to manipulate text
  *
  * @author      Rudy Mas <rudy.mas@rudymas.be>
  * @copyright   2016, rudymas.be. (http://www.rudymas.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     0.1.0
+ * @package     RudyMas\Manipulator
  */
 class Text
 {
