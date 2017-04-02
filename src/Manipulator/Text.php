@@ -1,14 +1,15 @@
 <?php
+
 namespace RudyMas\Manipulator;
 
 /**
  * Class Text
  * PHP class to manipulate text
  *
- * @author      Rudy Mas <rudy.mas@rudymas.be>
- * @copyright   2016, rudymas.be. (http://www.rudymas.be/)
+ * @author      Rudy Mas <rudy.mas@rmsoft.be>
+ * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.1.0
+ * @version     0.2.0
  * @package     RudyMas\Manipulator
  */
 class Text
@@ -37,7 +38,18 @@ class Text
      */
     public function cleanHTML($input)
     {
-        return nl2br(htmlentities($input, ENT_QUOTES));
+        return htmlentities($input, ENT_HTML5, 'UTF-8');
+    }
+
+    /**
+     * function uncleanHTML($input)
+     *
+     * @param string $input Text that has to be processed
+     * @return string
+     */
+    public function uncleanHTML($input)
+    {
+        return html_entity_decode($input, ENT_HTML5, 'UTF-8');
     }
 
     /**
