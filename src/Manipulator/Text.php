@@ -3,13 +3,13 @@
 namespace RudyMas\Manipulator;
 
 /**
- * Class Text
+ * Class Text (PHP version 7.1)
  * PHP class to manipulate text
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.2.0
+ * @version     0.3.0
  * @package     RudyMas\Manipulator
  */
 class Text
@@ -20,7 +20,7 @@ class Text
      * @param int $numberOfCharacters The number of characters I want
      * @return string
      */
-    public function randomText($numberOfCharacters)
+    public function randomText(int $numberOfCharacters): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = '';
@@ -36,7 +36,7 @@ class Text
      * @param string $input Text that has to be processed
      * @return string
      */
-    public function cleanHTML($input)
+    public function cleanHTML(string $input): string
     {
         return htmlentities($input, ENT_HTML5, 'UTF-8');
     }
@@ -47,7 +47,7 @@ class Text
      * @param string $input Text that has to be processed
      * @return string
      */
-    public function uncleanHTML($input)
+    public function uncleanHTML(string $input): string
     {
         return html_entity_decode($input, ENT_HTML5, 'UTF-8');
     }
@@ -58,8 +58,9 @@ class Text
      * @param string $input URL that has to be processed
      * @return string
      */
-    public function cleanURL($input)
+    public function cleanURL(string $input): string
     {
+        $input = str_replace('/', '__', $input);
         return rawurlencode($input);
     }
 
@@ -69,9 +70,11 @@ class Text
      * @param string $input
      * @return string
      */
-    public function cleanURLUTF8($input)
+    public function cleanURLUTF8(string $input): string
     {
+        $input = str_replace('__', '/', $input);
         return rawurldecode(utf8_encode($input));
     }
 }
+
 /** End of File: Text.php **/
