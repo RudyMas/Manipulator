@@ -15,8 +15,6 @@ namespace RudyMas\Manipulator;
 class Text
 {
     /**
-     * function randomText($numberOfCharacters)
-     *
      * @param int $numberOfCharacters The number of characters I want
      * @return string
      */
@@ -31,8 +29,6 @@ class Text
     }
 
     /**
-     * function cleanHTML($input)
-     *
      * @param string $input Text that has to be processed
      * @return string
      */
@@ -42,8 +38,6 @@ class Text
     }
 
     /**
-     * function uncleanHTML($input)
-     *
      * @param string $input Text that has to be processed
      * @return string
      */
@@ -53,8 +47,6 @@ class Text
     }
 
     /**
-     * function cleanURL($input)
-     *
      * @param string $input URL that has to be processed
      * @return string
      */
@@ -65,15 +57,23 @@ class Text
     }
 
     /**
-     * function cleanURLUTF8($input)
-     *
      * @param string $input
      * @return string
      */
     public function cleanURLUTF8(string $input): string
     {
+        $input = str_replace('/', '__', $input);
+        return rawurlencode(utf8_encode($input));
+    }
+
+    /**
+     * @param string $input
+     * @return string
+     */
+    public function uncleanURL(string $input): string
+    {
         $input = str_replace('__', '/', $input);
-        return rawurldecode(utf8_encode($input));
+        return rawurldecode($input);
     }
 }
 
