@@ -9,12 +9,15 @@ namespace RudyMas\Manipulator;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2018, rmsoft.be (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.1.1
+ * @version     1.1.2
  * @package     RudyMas\Manipulator
  */
 class CalculatePregnancy
 {
     private $DM;
+    private $pregnancyDuration;
+    private $periodWeek;
+    private $periodDay;
 
     /**
      * CalculatePregnancy constructor.
@@ -22,6 +25,9 @@ class CalculatePregnancy
     public function __construct()
     {
         $this->DM = new DateManipulator();
+        $this->pregnancyDuration = 281 * 24 * 60 * 60;
+        $this->periodDay = 24 * 60 * 60;
+        $this->periodWeek = 7 * $this->periodDay;
     }
 
     /**
@@ -35,8 +41,8 @@ class CalculatePregnancy
     {
         $timestampDeliveryDate = $this->DM->convertDateToTimestamp($deliveryDate);
         $timestampReferenceDate = $this->DM->convertDateToTimestamp($referenceDate);
-        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
-        return ceil(($timestampReferenceDate - $timestampConceptionDate) / (7 * 24 * 60 * 60));
+        $timestampConceptionDate = $timestampDeliveryDate - $this->pregnancyDuration;
+        return ceil(($timestampReferenceDate - $timestampConceptionDate) / $this->periodWeek);
     }
 
     /**
@@ -50,8 +56,8 @@ class CalculatePregnancy
     {
         $timestampDeliveryDate = $this->DM->convertDateToTimestamp($deliveryDate);
         $timestampReferenceDate = $this->DM->convertDateToTimestamp($referenceDate);
-        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
-        return ceil(($timestampReferenceDate - $timestampConceptionDate) / (24 * 60 * 60));
+        $timestampConceptionDate = $timestampDeliveryDate - $this->pregnancyDuration;
+        return ceil(($timestampReferenceDate - $timestampConceptionDate) / $this->periodDay);
     }
 
     /**
@@ -63,8 +69,8 @@ class CalculatePregnancy
      */
     public function calculateWeeksByTimestamp(int $timestampDeliveryDate, int $timestampReferenceDate): int
     {
-        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
-        return ceil(($timestampReferenceDate - $timestampConceptionDate) / (7 * 24 * 60 * 60));
+        $timestampConceptionDate = $timestampDeliveryDate - $this->pregnancyDuration;
+        return ceil(($timestampReferenceDate - $timestampConceptionDate) / $this->periodWeek);
     }
 
     /**
@@ -76,8 +82,8 @@ class CalculatePregnancy
      */
     public function calculateDaysByTimestamp(int $timestampDeliveryDate, int $timestampReferenceDate): int
     {
-        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
-        return ceil(($timestampReferenceDate - $timestampConceptionDate) / (24 * 60 * 60));
+        $timestampConceptionDate = $timestampDeliveryDate - $this->pregnancyDuration;
+        return ceil(($timestampReferenceDate - $timestampConceptionDate) / $this->periodDay);
     }
 }
 
