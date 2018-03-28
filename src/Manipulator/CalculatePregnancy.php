@@ -9,7 +9,7 @@ namespace RudyMas\Manipulator;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2018, rmsoft.be (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.1.0
+ * @version     1.1.1
  * @package     RudyMas\Manipulator
  */
 class CalculatePregnancy
@@ -35,7 +35,7 @@ class CalculatePregnancy
     {
         $timestampDeliveryDate = $this->DM->convertDateToTimestamp($deliveryDate);
         $timestampReferenceDate = $this->DM->convertDateToTimestamp($referenceDate);
-        $timestampConceptionDate = $timestampDeliveryDate - (280 * 24 * 60 * 60);
+        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
         return ceil(($timestampReferenceDate - $timestampConceptionDate) / (7 * 24 * 60 * 60));
     }
 
@@ -50,7 +50,7 @@ class CalculatePregnancy
     {
         $timestampDeliveryDate = $this->DM->convertDateToTimestamp($deliveryDate);
         $timestampReferenceDate = $this->DM->convertDateToTimestamp($referenceDate);
-        $timestampConceptionDate = $timestampDeliveryDate - (280 * 24 * 60 * 60);
+        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
         return ceil(($timestampReferenceDate - $timestampConceptionDate) / (24 * 60 * 60));
     }
 
@@ -63,7 +63,7 @@ class CalculatePregnancy
      */
     public function calculateWeeksByTimestamp(int $timestampDeliveryDate, int $timestampReferenceDate): int
     {
-        $timestampConceptionDate = $timestampDeliveryDate - (280 * 24 * 60 * 60);
+        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
         return ceil(($timestampReferenceDate - $timestampConceptionDate) / (7 * 24 * 60 * 60));
     }
 
@@ -76,7 +76,7 @@ class CalculatePregnancy
      */
     public function calculateDaysByTimestamp(int $timestampDeliveryDate, int $timestampReferenceDate): int
     {
-        $timestampConceptionDate = $timestampDeliveryDate - (280 * 24 * 60 * 60);
+        $timestampConceptionDate = $timestampDeliveryDate - (281 * 24 * 60 * 60);
         return ceil(($timestampReferenceDate - $timestampConceptionDate) / (24 * 60 * 60));
     }
 }
