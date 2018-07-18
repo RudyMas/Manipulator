@@ -9,7 +9,7 @@ namespace RudyMas\Manipulator;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.1.0
+ * @version     0.1.0.5
  * @package     RudyMas\Manipulator
  */
 class DateManipulator
@@ -26,6 +26,8 @@ class DateManipulator
     }
 
     /**
+     * Converts a Timestamp to a date (yyyy-mm-dd)
+     *
      * @param int $timestamp
      * @return string
      */
@@ -45,5 +47,3 @@ class DateManipulator
         return date('Y-m-d H:i:s', $timestamp);
     }
 }
-
-/** End of File: DateManipulator.php **/

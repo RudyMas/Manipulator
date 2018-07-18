@@ -1,9 +1,8 @@
 {
   "name": "rudymas/manipulator",
   "description": "A collection of classes that manipulate a certain subject (Text, Number, Date, ...)",
-  "version": "0.4.2",
   "type": "library",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Rudy Mas",
@@ -12,7 +11,7 @@
       "role": "Developer"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">= 7.1"
   },
