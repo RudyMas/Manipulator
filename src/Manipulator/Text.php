@@ -9,7 +9,7 @@ namespace RudyMas\Manipulator;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.3.0.7
+ * @version     0.4.0.8
  * @package     RudyMas\Manipulator
  */
 class Text
@@ -75,6 +75,13 @@ class Text
         $input = str_replace('__', '/', $input);
         return rawurldecode($input);
     }
-}
 
-/** End of File: Text.php **/
+    /**
+     * @param string $input
+     * @return string
+     */
+    public function rtrimStringNumber(string $input): string
+    {
+        return rtrim(rtrim($input, '0'), '.');
+    }
+}
