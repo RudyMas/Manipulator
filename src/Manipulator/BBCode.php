@@ -9,14 +9,11 @@ namespace RudyMas\Manipulator;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2018, rmsoft.be (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.0.1.1
+ * @version     0.0.2.2
  * @package     RudyMas\Manipulator
  */
 class BBCode
 {
-    private $bbCode;
-    private $html;
-
     private $pattern = [
         '#\[b\](.*?)\[/b\]#si',
         '#\[i\](.*?)\[/i\]#si',
@@ -32,8 +29,8 @@ class BBCode
         '#\[email\](.*?)\[/email\]#si',
         '#\[email=(.*?){1}(.*?)\](.*?)\[/email\]#si',
         '#\[\*\](.*?)#si',
-        '#\[list\]\r(.*?)\[/list\]\r#si',
-        '#\[list=(.*?)\]\r(.*?)\[/list\]\r#si',
+        '#\[list\](.*?)\[/list\]#si',
+        '#\[list=(.*?)\](.*?)\[/list\]#si',
         '#\[img\](.*?)\[/img\]#si',
         '#\[img=(.*?)x(.*?)\](.*?)\[/img\]#si',
         '#\[img=w(.*?)\](.*?)\[/img\]#si',
@@ -73,7 +70,7 @@ class BBCode
         $text = str_replace("<br>", "", $text);
         $text = str_replace("<br/>", "", $text);
         $text = str_replace("<br />", "", $text);
-        $text = str_replace("\n", "<br>", $text);
+        $text = str_replace("\r", "<br>", $text);
         $text = str_replace("\t", "&nbsp; &nbsp; &nbsp;", $text);
 
         return preg_replace($this->pattern, $this->replace, $text);

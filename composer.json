@@ -16,9 +16,6 @@
     "php": ">= 7.1"
   },
   "autoload": {
-    "classmap": [
-      "src/"
-    ],
     "psr-4": {
       "RudyMas\\Manipulator\\": "src/"
     }
