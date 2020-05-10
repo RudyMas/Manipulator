@@ -3,13 +3,13 @@
 namespace RudyMas\Manipulator;
 
 /**
- * Class Text (PHP version 7.1)
+ * Class Text (PHP version 7.2)
  * PHP class to manipulate text
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2016-2020, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.4.0.8
+ * @version     0.4.1.0
  * @package     RudyMas\Manipulator
  */
 class Text
@@ -74,6 +74,16 @@ class Text
     {
         $input = str_replace('__', '/', $input);
         return rawurldecode($input);
+    }
+
+    /**
+     * @param string $input
+     * @return string
+     */
+    public function uncleanURLUTF8(string $input): string
+    {
+        $input = str_replace('__', '/', $input);
+        return rawurldecode(utf8_decode($input));
     }
 
     /**

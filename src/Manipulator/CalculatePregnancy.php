@@ -3,13 +3,13 @@
 namespace RudyMas\Manipulator;
 
 /**
- * Class CalculatePregnancy (PHP version 7.1)
+ * Class CalculatePregnancy (PHP version 7.2)
  * PHP class to calculate weeks/days that someone is pregnant
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2018, rmsoft.be (http://www.rmsoft.be/)
+ * @copyright   2018-2020, rmsoft.be (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.1.2.17
+ * @version     1.1.3.0
  * @package     RudyMas\Manipulator
  */
 class CalculatePregnancy
